@@ -8,9 +8,8 @@ Feature: The Internet Guinea Pig Website
 
     Examples:
       | page                          |
-      | A/B Testing                   |
+      | A/B Testing                    |
       | Add/Remove Elements           |
-      | Basic Auth                    |
       | Broken Images                 |
       | Challenging DOM               |
       | Checkboxes                    |

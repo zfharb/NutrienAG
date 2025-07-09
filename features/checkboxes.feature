@@ -8,4 +8,4 @@ Feature: The Internet Guinea Pig Website
       Examples:
       | num |
       |   1 |
-      |   2 |
+      |   3 |

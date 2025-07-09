@@ -11,6 +11,12 @@ When(
 );
 
 Then(/^I should see a paragraph saying (.+)$/, async (message) => {
-  await expect(BasicAuthPage.message).toBeExisting();
-  await expect(BasicAuthPage.message).toHaveTextContaining(message);
+  if (await browser.isAlertOpen()) {
+    await browser.dismissAlert();
+    await expect(BasicAuthPage.notAuthorizedMessage).toBeExisting();
+    await expect(BasicAuthPage.notAuthorizedMessage).toHaveTextContaining(message);
+  } else {
+    await expect(BasicAuthPage.message).toBeExisting();
+    await expect(BasicAuthPage.message).toHaveTextContaining(message);
+  }
 });

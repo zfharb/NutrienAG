@@ -8,7 +8,9 @@ class CheckboxesPage {
 
   async select(num) {
     const checkbox = await this.elements.checkbox(num);
-    await checkbox.click();
+    if (!await checkbox.isSelected()) {
+      await checkbox.click();
+    }
   }
 }
 

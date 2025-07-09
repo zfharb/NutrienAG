@@ -10,7 +10,7 @@ export default class Page {
       "Basic Auth": "basic_auth",
       Checkboxes: "checkboxes",
       Dropdown: "dropdown",
-      inputs: "inputs",
+      'inputs': "inputs",
 
       "A/B Testing": "abtest",
       "Add/Remove Elements": "add_remove_elements/",
@@ -30,6 +30,7 @@ export default class Page {
       "Floating Menu": "floating_menu",
       "Forgot Password": "forgot_password",
       "Form Authentication": "login",
+      "login": "login",
       Frames: "frames",
       Geolocation: "geolocation",
       "Horizontal Slider": "horizontal_slider",
@@ -55,6 +56,53 @@ export default class Page {
     };
   }
 
+  get pageHeader() {
+    return {
+      "A/B Testing": "Test Variation",
+      "Add/Remove Elements": "Add/Remove Elements",          
+      "Broken Images": "Broken Images",                 
+      "Challenging DOM": "Challenging DOM",               
+      "Checkboxes": "Checkboxes",                    
+      "Context Menu": "Context Menu",                  
+      "Disappearing Elements": "",         
+      "Drag and Drop": "Drag and Drop",                 
+      "Dropdown": "Dropdown List",                      
+      "Dynamic Content": "Dynamic Content",               
+      "Dynamic Controls": "Dynamic Controls",              
+      "Dynamic Loading": "Dynamically Loaded Page Elements",               
+      "Entry Ad":"Entry Ad",                      
+      "Exit Intent":"Exit Intent",                 
+      "File Download":"File Downloader",                 
+      "File Upload": "File Uploader",                   
+      "Floating Menu": "Floating Menu",                 
+      "Forgot Password": "Forgot Password",               
+      "Form Authentication": "Login Page",           
+      "Frames": "Frames",                        
+      "Geolocation": "Geolocation",
+      "Horizontal Slider": "Horizontal Slider",
+      "Hovers": "Hovers",
+      "Infinite Scroll": "Infinite Scroll",
+      "Inputs": "Inputs",
+      "JQuery UI Menus": "JQueryUI - Menu",
+      "JavaScript Alerts": "JavaScript Alerts",
+      "JavaScript onload event error": "",
+      "Key Presses": "Key Presses",
+      "Large & Deep DOM": "Large & Deep DOM",
+      "Multiple Windows": "Opening a new window",
+      "Nested Frames": "MIDDLE",
+      "Notification Messages": "Notification Message",
+      "Redirect Link": "Redirection",
+      "Secure File Download": "Secure File Downloader",
+      "Shadow DOM": "Simple template",
+      "Shifting Content": "Shifting Content",
+      "Slow Resources": "Slow Resources",
+      "Sortable Data Tables": "Data Tables",
+      "Status Codes": "Status Codes",
+      "Typos": "Typos",
+      "WYSIWYG Editor": "An iFrame containing the TinyMCE WYSIWYG Editor"    
+    };
+  }
+
   get base() {
     return `https://the-internet.herokuapp.com`;
   }
@@ -69,7 +117,14 @@ export default class Page {
    * @param path path of the sub page (e.g. /path/to/page.html)
    */
   open(path = "") {
-    if (path in this.paths) return this.open(this.paths[path]);
-    return browser.url(`${this.base}/${path}`);
+    if (this.paths[path] != undefined) 
+    {
+      return browser.url(`${this.base}/${this.paths[path]}`);
+    }  else {
+      return browser.url(`${this.base}`);
+      // return this.open(this.paths[path]);
+
+    }
+    
   }
 }

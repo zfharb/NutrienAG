@@ -16,9 +16,9 @@ When(/^I click the (.+) link$/, async function (page) {
 });
 
 Then("I should be driected to the selected page", async function () {
-  const html = await $("*").getHTML();
-  console.log(html);
-  expect(html).toMatch(new RegExp(`/h3.+${this.page}.+h3/`, "gm"));
-  // const header = await $("h3");
-  // expect(header).toHaveTextContaining(this.page);
+  if (await browser.isAlertOpen()) {
+    await browser.dismissAlert();
+  } 
+  const html = (await $("*").getHTML()).toString();
+  expect(html).toContain(`${index.pageHeader[this.page]}`);
 });
