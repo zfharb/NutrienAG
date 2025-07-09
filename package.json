@@ -1,5 +1,5 @@
 {
-  "name": "nutrien_wiki",
+  "name": "nutrien__wiki",
   "type": "module",
   "devDependencies": {
     "@babel/core": "^7.25.2",
