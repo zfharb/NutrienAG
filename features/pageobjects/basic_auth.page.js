@@ -1,4 +1,5 @@
 
+
 class BasicAuthPage {
   get message() {
     return $(".example > p");

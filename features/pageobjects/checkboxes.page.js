@@ -1,3 +1,6 @@
+
+
+
 class CheckboxesPage {
   get elements() {
     return {
